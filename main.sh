@@ -36,5 +36,5 @@ docker run -d \
     -v /usr/local/grafana/plugins/:/var/lib/grafana/plugins \
     -v /usr/local/grafana/config/grafana.ini:/etc/grafana/grafana.ini \
     -e "GF_SECURITY_ADMIN_PASSWORD=admin" \
-    -e "GF_INSTALL_PLUGINS=grafana-worldmap-panel,grafana-clock-panel,grafana-simple-json-datasource,grafana-piechart-panel,volkovlabs-echarts-panel,satellogic-3d-globe-panel,aceiot-svg-panel,ryantxu-ajax-panel,yesoreyeram-boomtable-panel,netsage-bumpchart-panel,marcusolsson-calendar-panel,integrationmatters-comparison-panel,jdbranham-diagram-panel,natel-discrete-panel,larona-epict-panel,agenty-flowcharting-panel" \
+    -e "GF_INSTALL_PLUGINS=grafana-worldmap-panel,grafana-clock-panel,grafana-simple-json-datasource,grafana-piechart-panel,volkovlabs-echarts-panel,satellogic-3d-globe-panel,aceiot-svg-panel,ryantxu-ajax-panel,yesoreyeram-boomtable-panel,netsage-bumpchart-panel,marcusolsson-calendar-panel,integrationmatters-comparison-panel,jdbranham-diagram-panel,natel-discrete-panel,larona-epict-panel,agenty-flowcharting-panel,grafana-polystat-panel" \
     grafana/grafana
