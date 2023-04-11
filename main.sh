@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # /Users/xxx/grafana/data 目录，准备用来挂载放置grafana的数据
 # /Users/xxx/grafana/plugins 目录，准备用来放置grafana的插件
 # /Users/xxx/grafana/config 目录，准备用来挂载放置grafana的配置文件
@@ -10,7 +12,8 @@ chmod -R 777 /usr/local/grafana/config
 
 
 # 先临时启动一个容器
-docker run --name grafana-tmp -d -p 3000:3000 grafana/grafana
+docker pull grafana/grafana-enterprise
+docker run --name grafana-tmp -d -p 3000:3000 grafana/grafana-enterprise
 # 将容器中默认的配置文件拷贝到宿主机上
 docker cp grafana-tmp:/etc/grafana/grafana.ini /usr/local//grafana/config/grafana.ini
 # 移除临时容器
@@ -37,4 +40,4 @@ docker run -d \
     -v /usr/local/grafana/config/grafana.ini:/etc/grafana/grafana.ini \
     -e "GF_SECURITY_ADMIN_PASSWORD=admin" \
     -e "GF_INSTALL_PLUGINS=grafana-worldmap-panel,grafana-clock-panel,grafana-simple-json-datasource,grafana-piechart-panel,volkovlabs-echarts-panel,satellogic-3d-globe-panel,aceiot-svg-panel,ryantxu-ajax-panel,yesoreyeram-boomtable-panel,netsage-bumpchart-panel,marcusolsson-calendar-panel,integrationmatters-comparison-panel,jdbranham-diagram-panel,natel-discrete-panel,larona-epict-panel,agenty-flowcharting-panel,grafana-polystat-panel,vaduga-mapgl-panel,knightss27-weathermap-panel,isaozler-paretochart-panel,nikosc-percenttrend-panel,philipsgis-phlowchart-panel,corpglory-progresslist-panel,novatec-sdg-panel,boazreicher-sierraplot-panel,flant-statusmap-panel,marcuscalidus-svg-panel,gowee-traceroutemap-panel,volkovlabs-image-panel" \
-    grafana/grafana
+    grafana/grafana-enterprise
